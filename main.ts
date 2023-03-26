@@ -14,6 +14,16 @@ export default class MyPlugin extends Plugin {
 	settings: MyPluginSettings;
 
 	async onload() {
+		console.log('loading plugin');
+
+		this.addCommand({
+			id: "print-a-notice",
+			name: "Print a notice",
+			callback: () => {
+				new Notice('Hei!!!');
+			},
+		});
+
 		await this.loadSettings();
 
 		// This creates an icon in the left ribbon.
@@ -79,6 +89,7 @@ export default class MyPlugin extends Plugin {
 	}
 
 	onunload() {
+		console.log('unloading plugin')
 
 	}
 
